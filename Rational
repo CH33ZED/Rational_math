@@ -1,0 +1,18 @@
+public class Rational{
+    private int N;
+    private int D;
+    public Rational(){
+        N = 0;
+        D = 1;
+    }
+    public Rational(int a, int b){
+    if (!(b==1)){
+        N = a;
+        D = b;
+    }
+    this;
+    }
+    public String toString(){
+        return N + "/" + D;
+    }
+}
