@@ -1,23 +1,50 @@
+/*Math
+Ziyan Lin
+Jiawei Chen
+APCS1 pd9
+HW32 -- Irrationality Stops here
+2015 11 17  
+
+Instance variables for the numerator and denominator
+Default constructor (no parameters)
+Creates a new Rational with the value of 0/1
+Constructor
+takes 2 parameters, one for the numerator, one for the denominator
+if an invalid denominator is attempted, should print a message and set the number to 0/1
+toString
+returns a string representation of the rational number (formatting of your choice)
+floatValue
+Returns a floating point value of the number
+Uses the most precise floating point primitive
+multiply
+Takes 1 Rational object as a parameter and multiplies it by this Rational object
+Does not return any value
+Should modify this object and leave the parameter alone (see below for example)
+Need not reduce the fraction
+divide
+Works the same as multiply, except the operation is division
+*/
+
 public class Rational{
     private int N;
     private int D;
     private float c;
     public Rational(){
-        b = (float)(0/1);
+        c = (float)0/1;
     }
     public Rational(int a, int b){
-    if (!(b==1)){
-        b = (float)(a/b);
-    }
-    this;
+       this();
+       if (!(b==1)){
+        c = (float)a/b;
+       }
     }
     public String toString(){
-        return N + "/" + D;
+        return "" + c;
     }
-    public String multiply(Rational b){
+    public void multiply(Rational b){
         c *= b.c;
     }
-    public String divide(Rational b){
+    public void divide(Rational b){
         c /= b.c;
     }
 }
