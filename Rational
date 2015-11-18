@@ -1,18 +1,23 @@
 public class Rational{
     private int N;
     private int D;
+    private float c;
     public Rational(){
-        N = 0;
-        D = 1;
+        b = (float)(0/1);
     }
     public Rational(int a, int b){
     if (!(b==1)){
-        N = a;
-        D = b;
+        b = (float)(a/b);
     }
     this;
     }
     public String toString(){
         return N + "/" + D;
+    }
+    public String multiply(Rational b){
+        c *= b.c;
+    }
+    public String divide(Rational b){
+        c /= b.c;
     }
 }
