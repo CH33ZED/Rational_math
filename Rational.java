@@ -110,5 +110,5 @@ public class Rational{
 	t.reduce(); //Changes t to 2/9
         System.out.println(t.compareTo(s));
         System.out.println(r.compareTo(t));
-    }
+    }      
 }
