@@ -23,6 +23,23 @@ Should modify this object and leave the parameter alone (see below for example)
 Need not reduce the fraction
 divide
 Works the same as multiply, except the operation is division
+add
+Takes 1 Rational object (just like multiply) and adds it to the current rational number object
+Need not reduce
+subtract
+Works the same as add, except the operation is subtraction
+gcd
+Returns the gcd of the numerator and denominator
+Uses Euclid's algorithm (reuse your old code!)
+Recall that in order for Euclid's algorithm to work, the first number must be greater than the second
+reduce
+Changes this Rational to one in reduced form (should use gcd)
+Add a static gcd method that will take numerator and denominator inputs.
+Add a method called compareTo that...
+Takes a Rational as a parameter and compares it to the calling object
+Returns 0 if the two numbers are equal
+Returns a positive integer if the calling number is larger than the parameter
+Returns a negative integer if the calling number is smaller than the parameter
 */
 
 public class Rational{
@@ -60,6 +77,10 @@ public class Rational{
 	}
 	return gcd(b,remainder);
     }
+    
+    public static int gcd(){
+        return gcd(N,D);
+    }
 
     public void reduce(){
 	N = N/gcd(N,D);
@@ -72,6 +93,16 @@ public class Rational{
     public void subtract(Rational b){
 	N = N*b.D - D*b.N;
 	D *= b.D;
+    }
+    public int compareTo(Rational a){
+        if (N/D == a.N/a.D){
+           return 0;
+        }
+        if (N/D > a.N/a.D){
+           return 1;
+        }
+        else{
+           return -1;
     }
     public static void main(String[] arg){
 	Rational r = new Rational(2,3); //Stores the rational number 2/3
