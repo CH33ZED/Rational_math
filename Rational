@@ -92,10 +92,10 @@ public class Rational{
 	D *= b.D;
     }
     public int compareTo(Rational a){
-        if ((N/D) == (a.N/a.D)){
+        if (floatValue() == a.floatValue()){
            return 0;
         }
-        else if ((N/D) > (a.N/a.D)){
+	if (floatValue() > a.floatValue()){
            return 1;
         }
         else{
@@ -109,6 +109,6 @@ public class Rational{
 	r.add(s);  //Adds r to s, changes r to 7/6.  s remains 1/2
 	t.reduce(); //Changes t to 2/9
         System.out.println(t.compareTo(s));
-        System.out.println(s.compareTo(t));
+        System.out.println(r.compareTo(t));
     }
 }
