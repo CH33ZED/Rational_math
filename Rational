@@ -51,7 +51,7 @@ public class Rational{
     }
     public Rational(int a, int b){
         this();
-        if (!(b==1)){
+        if (!(b==0)){
             N = a;
 	    D = b;
         }
@@ -69,8 +69,9 @@ public class Rational{
     }
     public float floatValue(){
 	return N * (1.0f) / D;
+    }
 
-    public int gcd(int a,int b){
+    public static int gcd(int a,int b){
 	int remainder = a%b;
 	if (remainder == 0){
 	    return b;
@@ -78,10 +79,6 @@ public class Rational{
 	return gcd(b,remainder);
     }
     
-    public static int gcd(){
-        return gcd(N,D);
-    }
-
     public void reduce(){
 	N = N/gcd(N,D);
 	D = D/gcd(N,D);
@@ -95,23 +92,23 @@ public class Rational{
 	D *= b.D;
     }
     public int compareTo(Rational a){
-        if (N/D == a.N/a.D){
+        if ((N/D) == (a.N/a.D)){
            return 0;
         }
-        if (N/D > a.N/a.D){
+        else if ((N/D) > (a.N/a.D)){
            return 1;
         }
         else{
            return -1;
+        }
     }
     public static void main(String[] arg){
-	Rational r = new Rational(2,3); //Stores the rational number 2/3
-	Rational s = new Rational(1,2); //Stores the rational number 1/2
-	Rational t = new Rational(4,18); //Stores the rational number 4/18
+	Rational r = new Rational(1,2); //Stores the rational number 2/3
+	Rational s = new Rational(2,3); //Stores the rational number 1/2
+	Rational t = new Rational(9,18); //Stores the rational number 4/18
 	r.add(s);  //Adds r to s, changes r to 7/6.  s remains 1/2
 	t.reduce(); //Changes t to 2/9
+        System.out.println(t.compareTo(s));
+        System.out.println(s.compareTo(t));
     }
 }
-
-
-
