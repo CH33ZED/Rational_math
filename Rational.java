@@ -76,7 +76,7 @@ public class Rational{
 	if (remainder == 0){
 	    return b;
 	}
-	return gcd(b,remainder);
+	return gcd(b,remainder);   
     }
     
     public void reduce(){
