@@ -1,9 +1,9 @@
 /*Math  
 Ziyan Lin
-Jiawei Chen
+Ricky Wu
 APCS1 pd9
-HW32 -- Irrationality Stops here
-2015 11 17  
+HW33 -- Do You Even Add, Bro?
+2015 11 18  
 
 Instance variables for the numerator and denominator
 Default constructor (no parameters)
@@ -28,23 +28,59 @@ Works the same as multiply, except the operation is division
 public class Rational{
     private int N;
     private int D;
-    private float c;
     public Rational(){
-        c = (float)0/1;
+        N = 0;
+	D = 1;
     }
     public Rational(int a, int b){
-       this();
-       if (!(b==1)){
-        c = (float)a/b;
-       }
+        this();
+        if (!(b==1)){
+            N = a;
+	    D = b;
+        }
     }
     public String toString(){
-        return "" + c;
+        return N + "/" + D;
     }
     public void multiply(Rational b){
-        c *= b.c;
+        N *= b.N;
+	D *= b.D;	
     }
     public void divide(Rational b){
-        c /= b.c;
+        N *= b.D;
+	D *= b.N;
+    }
+    public float floatValue(){
+	return N * (1.0f) / D;
+
+    public int gcd(int a,int b){
+	int remainder = a%b;
+	if (remainder == 0){
+	    return b;
+	}
+	return gcd(b,remainder);
+    }
+
+    public void reduce(){
+	N = N/gcd(N,D);
+	D = D/gcd(N,D);
+    }
+    public void add(Rational b){
+	N = N*b.D + D*b.N;
+	D *= b.D;
+    }
+    public void subtract(Rational b){
+	N = N*b.D - D*b.N;
+	D *= b.D;
+    }
+    public static void main(String[] arg){
+	Rational r = new Rational(2,3); //Stores the rational number 2/3
+	Rational s = new Rational(1,2); //Stores the rational number 1/2
+	Rational t = new Rational(4,18); //Stores the rational number 4/18
+	r.add(s);  //Adds r to s, changes r to 7/6.  s remains 1/2
+	t.reduce(); //Changes t to 2/9
     }
 }
+
+
+
